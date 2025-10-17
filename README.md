@@ -6,7 +6,7 @@ Mini game em **linguagem C** que simula um modo de sobrevivência inspirado em F
 
 ---
 
-## 🎯 Objetivos do projeto
+ Objetivos do projeto
 - Implementar **lista linear (vetor)** e **lista encadeada**;
 - Executar **inserção, remoção, percorrimento e busca sequencial**;
 - Comparar **vetor vs. lista encadeada** (comparações e tempo);
@@ -16,7 +16,7 @@ Mini game em **linguagem C** que simula um modo de sobrevivência inspirado em F
 
 ---
 
-## 🗂️ Estrutura de pastas
+ Estrutura de pastas
 ```
 freefire-desafio-c/
 ├── src/
@@ -28,8 +28,8 @@ freefire-desafio-c/
 
 ---
 
-## ⚙️ Como compilar e executar
-### Via Makefile (recomendado)
+ Como compilar e executar
+ Via Makefile (recomendado)
 ```bash
 make
 ./freefire
@@ -49,7 +49,7 @@ gcc -O2 -Wall -Wextra -o freefire src/main.c
 
 ---
 
-## 🕹️ Menu do jogo
+ Menu do jogo
 ```
 1) Listar inventario (vetor)
 2) Pegar item (insere no vetor)
@@ -72,7 +72,7 @@ gcc -O2 -Wall -Wextra -o freefire src/main.c
 
 ---
 
-## 🔎 Busca e Ordenação
+ Busca e Ordenação
 - **Busca sequencial** no vetor: `seq_busca_sequencial_nome`
 - **Busca binária** (iterativa e recursiva): `bsearch_nome_iter` e `bsearch_nome_rec`  
   *Pré-condição:* vetor **ordenado por nome** (`bubble_sort_nome`).
@@ -81,7 +81,7 @@ gcc -O2 -Wall -Wextra -o freefire src/main.c
 
 ---
 
-## ⚖️ Comparação Vetor × Lista Encadeada
+ Comparação Vetor × Lista Encadeada
 A função `benchmark_busca` faz a busca **linear** em ambos e exibe:
 - posição encontrada,
 - **número de comparações**,
@@ -90,17 +90,17 @@ Isso ilustra, de forma simples, as diferenças de percurso e acesso (contíguo v
 
 ---
 
-## 📌 Observações didáticas
+##  Observações didáticas
 - Vetor tem **acesso indexado O(1)** e bom cache; inserções/remoções no meio custam deslocamento.
 - Lista encadeada tem inserções/remoções locais baratas, mas **acesso sequencial O(n)** e pior localidade de cache.
 - **Busca binária** só é válida em **dados ordenados** e com **acesso aleatório O(1)** (por isso aplicada no vetor).
 
 ---
 
-## 📄 Licença
+##  Licença
 MIT — livre para estudar, modificar e reutilizar com créditos.
 
 ---
 
-## 🙌 Créditos
+##  Créditos
 Projeto educacional do desafio *Free Fire — Tema 2*. Feito em C, com foco em estruturas de dados e análise de algoritmos.
