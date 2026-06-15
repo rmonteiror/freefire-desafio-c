@@ -1,106 +1,178 @@
-# Free Fire – Mini Game em C (Desafio Tema 2)
+# Survival Inventory System in C
 
-Mini game em **linguagem C** que simula um modo de sobrevivência inspirado em Free Fire, focado em **estruturas de dados** (vetor e lista encadeada), **operações de inserção/remoção/percorrimento**, **buscas linear e binária (iterativa e recursiva)** e **métodos de ordenação** (Bubble e Selection) com **contagem de comparações**.
+An educational C project designed to demonstrate fundamental data structures, search algorithms, sorting algorithms, and performance analysis through a survival-themed inventory management simulation.
 
-> Estrutura e organização no mesmo estilo do desafio 1 (War): pastas claras, `README` completo, `Makefile`, `.gitignore` e código pronto para compilar.
+## Features
 
----
+* Dynamic inventory management using arrays
+* Linked list implementation and manipulation
+* Item insertion, removal, traversal, and search operations
+* Linear search and binary search implementations
+* Bubble Sort and Selection Sort algorithms
+* Performance benchmarking and comparison counting
+* Array versus linked list performance analysis
+* Survival scenario simulation with inventory-based escape conditions
 
- Objetivos do projeto
-- Implementar **lista linear (vetor)** e **lista encadeada**;
-- Executar **inserção, remoção, percorrimento e busca sequencial**;
-- Comparar **vetor vs. lista encadeada** (comparações e tempo);
-- Implementar **Bubble Sort** (por nome) e **Selection Sort** (por prioridade desc);
-- Implementar **Busca Binária** (iterativa e recursiva) por nome (em dados ordenados);
-- Simular uma checagem de **condição de escape** (requisitos mínimos no inventário).
+## Technical Concepts Demonstrated
 
----
+### Data Structures
 
- Estrutura de pastas
-```
-freefire-desafio-c/
+* Dynamic Array (Linear List)
+* Singly Linked List
+
+### Search Algorithms
+
+* Linear Search
+* Iterative Binary Search
+* Recursive Binary Search
+
+### Sorting Algorithms
+
+* Bubble Sort (Alphabetical Order)
+* Selection Sort (Priority Descending)
+
+### Performance Analysis
+
+* Comparison counting
+* Execution time measurement using `clock()`
+* Array versus linked list search benchmarking
+
+## Project Structure
+
+```text
+survival-inventory-system-c/
 ├── src/
-│   └── main.c          # código completo do mini game
-├── .gitignore          # ignora artefatos de build
-├── Makefile            # build simples (gcc)
+│   └── main.c
+├── .gitignore
+├── Makefile
 └── README.md
 ```
 
----
+## Requirements
 
- Como compilar e executar
- Via Makefile (recomendado)
+* GCC or Clang
+* Make
+
+## Build
+
 ```bash
 make
-./freefire
 ```
-Limpar artefatos:
+
+## Clean Build Files
+
 ```bash
 make clean
 ```
 
-### Via gcc direto
+## Run
+
+```bash
+./freefire
+```
+
+## Alternative Compilation
+
 ```bash
 gcc -O2 -Wall -Wextra -o freefire src/main.c
 ./freefire
 ```
 
-> Requer GCC/Clang e um terminal. Testado com `gcc`.
+## Interactive Menu
 
----
-
- Menu do jogo
-```
-1) Listar inventario (vetor)
-2) Pegar item (insere no vetor)
-3) Dropar item (remove por indice do vetor)
-4) Ordenar por NOME (Bubble) e mostrar comparacoes
-5) Ordenar por PRIORIDADE desc (Selection) e mostrar comparacoes
-6) Buscar por NOME (Linear no vetor)
-7) Buscar por NOME (Binaria ITERATIVA)
-8) Buscar por NOME (Binaria RECURSIVA)
-9) Mostrar lista encadeada
-10) Inserir na lista encadeada (push front)
-11) Remover da lista encadeada por nome
-12) Benchmark: comparar busca vetor vs lista
-13) Tentar FUGA da ilha
-0) Sair
+```text
+1) Display inventory (array)
+2) Add item
+3) Remove item
+4) Sort by name (Bubble Sort)
+5) Sort by priority (Selection Sort)
+6) Linear search by name
+7) Iterative binary search
+8) Recursive binary search
+9) Display linked list
+10) Insert into linked list
+11) Remove from linked list
+12) Benchmark array vs linked list search
+13) Attempt island escape
+0) Exit
 ```
 
-- **Ordenar por nome** (opção 4) **antes** de usar as buscas binárias (7 e 8).
-- A **fuga** exige pelo menos 1 item de cada tipo (ALIMENTO, ARMA, FERRAMENTA) e soma de prioridades ≥ **120**.
+## Search and Sorting
 
----
+### Linear Search
 
- Busca e Ordenação
-- **Busca sequencial** no vetor: `seq_busca_sequencial_nome`
-- **Busca binária** (iterativa e recursiva): `bsearch_nome_iter` e `bsearch_nome_rec`  
-  *Pré-condição:* vetor **ordenado por nome** (`bubble_sort_nome`).
-- **Bubble Sort por nome**: usa a relação `vetor[j] > vetor[j+1]` (com contagem de comparações).
-- **Selection Sort por prioridade (desc)**: ordena da maior para a menor prioridade.
+Performs sequential traversal of the inventory array.
 
----
+### Binary Search
 
- Comparação Vetor × Lista Encadeada
-A função `benchmark_busca` faz a busca **linear** em ambos e exibe:
-- posição encontrada,
-- **número de comparações**,
-- **tempo** da operação (usando `clock()`).
-Isso ilustra, de forma simples, as diferenças de percurso e acesso (contíguo vs. encadeado).
+Available in both iterative and recursive implementations.
 
----
+Requirement:
 
-##  Observações didáticas
-- Vetor tem **acesso indexado O(1)** e bom cache; inserções/remoções no meio custam deslocamento.
-- Lista encadeada tem inserções/remoções locais baratas, mas **acesso sequencial O(n)** e pior localidade de cache.
-- **Busca binária** só é válida em **dados ordenados** e com **acesso aleatório O(1)** (por isso aplicada no vetor).
+* Data must be sorted by name before performing binary search.
 
----
+### Bubble Sort
 
-##  Licença
-MIT — livre para estudar, modificar e reutilizar com créditos.
+Sorts items alphabetically while counting comparisons.
 
----
+### Selection Sort
 
-##  Créditos
-Projeto educacional do desafio *Free Fire — Tema 2*. Feito em C, com foco em estruturas de dados e análise de algoritmos.
+Sorts items by descending priority.
+
+## Array vs Linked List Comparison
+
+The benchmark module compares:
+
+* Search position
+* Number of comparisons
+* Execution time
+
+This demonstrates practical differences between contiguous memory structures and linked structures.
+
+## Educational Notes
+
+### Arrays
+
+Advantages:
+
+* O(1) indexed access
+* Cache-friendly memory layout
+
+Disadvantages:
+
+* Insertions and removals may require shifting elements
+
+### Linked Lists
+
+Advantages:
+
+* Efficient local insertions and removals
+
+Disadvantages:
+
+* O(n) sequential access
+* Lower cache locality
+
+### Binary Search
+
+Binary search requires:
+
+* Sorted data
+* Random-access structure
+
+For this reason, it is applied only to the array implementation.
+
+## Learning Objectives
+
+This project was developed to practice:
+
+* Data structures in C
+* Algorithm analysis
+* Search and sorting algorithms
+* Performance measurement
+* Memory organization
+* Problem solving using C
+
+## License
+
+MIT License
